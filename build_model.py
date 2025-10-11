@@ -99,7 +99,7 @@ class Model:
             )
         )
 
-    def save_model(self, clf, model_path="intent_classifier.pkl", encoder_path="label_encoder.pkl"):
+    def save_model(self, clf, model_path="intent_classifier.pkl"):
         joblib.dump({
             'model': clf,
             'label_encoder': self.label_encoder
@@ -113,3 +113,4 @@ if __name__ == "__main__":
     X_train_vec, X_test_vec, y_train, y_test = m.get_train_test_vectors()
     clf = m.train_model(X_train_vec, y_train)
     m.evaluate(clf, X_test_vec, y_test)
+    m.save_model(clf)
