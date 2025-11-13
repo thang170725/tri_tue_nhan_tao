@@ -38,7 +38,7 @@ class CheckDataset:
 class VisualChart:
     def __init__(self, dataset_path="dataset1.csv"):
         self.df = pd.read_csv(dataset_path)
-        # Tạo thêm cột độ dài câu
+        # Tạo  
         self.df["length"] = self.df["text"].apply(lambda x: len(str(x).split()))
 
         # tạo figsize 2x2
@@ -91,18 +91,22 @@ class VisualChart:
 ============================================================================
 '''   
 if __name__ == '__main__':
-    # run class checkDataset
-    # check = CheckDataset()
-    # df = check.df
-    # check.duplicate()
-    # check.counts_intent()
+    # # run class checkDataset
+    # # check = CheckDataset()
+    # # df = check.df
+    # # check.duplicate()
+    # # check.counts_intent()
 
-    # run class VisualChart
-    chart = VisualChart()
-    ax = chart.ax
-    chart.count_plot(ax[0])
-    chart.histogram_len(ax[1])
-    chart.word_cloud(ax[2])
-    chart.box_plot(ax[3])
-    plt.tight_layout()
-    plt.savefig('chart/chart.png')
+    # # run class VisualChart
+    # chart = VisualChart(dataset_path="tri_tue_nhan_tao/backend/ai_model/dataset1.csv")
+    # ax = chart.ax
+    # print(ax.shape, ax)
+    # # chart.count_plot(ax[0])
+    # # chart.histogram_len(ax[1])
+    # # chart.word_cloud(ax[2])
+    # # chart.box_plot(ax[3])
+    # # plt.tight_layout()
+    # # plt.savefig('chart/chart.png')
+    import os
+    BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+    print(__file__, BASE_DIR)

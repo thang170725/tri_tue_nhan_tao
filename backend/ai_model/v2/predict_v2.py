@@ -61,8 +61,8 @@ if __name__ == '__main__':
                 response_text = "🎵 Phát bài hát ngẫu nhiên"
                 tts.speak_vi(response_text, voice_style='northern', save=False)
             else:
+                music_player.play_song_by_name(text=user_input)
                 response_text = "🎵 Đang phát nhạc"
-                tts.speak_vi(response_text, voice_style='northern', save=False)
         elif intent == 'stop_music':
             music_player.stop_song()
             response_text = "⏹️ Dừng nhạc"

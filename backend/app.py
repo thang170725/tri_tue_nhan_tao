@@ -78,6 +78,7 @@ def upload():
             music_player.play_random_song()
             response_text = "🎵 Phát bài hát ngẫu nhiên"
         else:
+            music_player.play_song_by_name(text=user_input)
             response_text = "🎵 Đang phát nhạc"
     elif intent == 'stop_music':
         music_player.stop_song()

@@ -30,16 +30,26 @@ def play_random_song():
     print(f"🎵 Đang phát: {song}")
 
 # Phát bài cụ thể theo tên
-def play_song_by_name(keyword):
-    keyword = no_accent_vietnamese(keyword).lower()
-    found = [s for s in songs if keyword in no_accent_vietnamese(s.lower())]
-    if found:
-        song = found[0]
-        pygame.mixer.music.load(os.path.join(SONG_DIR, song))
+def play_song_by_name(text):
+    text = text.upper()
+    if 'MỞ BÀI' in text:
+        text = text.replace('MỞ BÀI', '').strip()
+        song = text + ' REMIX' + '.mp3'
+        path = os.path.join(SONG_DIR, song)
+
+        if not os.path.exists(path):
+            print("❌ Không tìm thấy file:", path)
+            return
+
+        pygame.mixer.music.load(path)
         pygame.mixer.music.play()
-        print(f"🎶 Đang phát: {song}")
+        print(f"🎵 Đang phát: {song}")
+
+        # # 🕒 Giữ chương trình sống đến khi bài hát kết thúc
+        # while pygame.mixer.music.get_busy():
+        #     time.sleep(1)
     else:
-        print("❌ Không tìm thấy bài hát phù hợp.")
+        print("Không tìm thấy bài phù hợp")
 
 '''
 ========================================================================================
