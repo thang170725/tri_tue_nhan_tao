@@ -48,8 +48,8 @@ export default function App() {
         name: "recording.m4a",
         type: "audio/m4a",
       } as any);
-      const res = await fetch("http://192.168.43.211:5000/upload", {
-      // const res = await fetch("http://192.168.1.207:5000/upload", {
+      // const res = await fetch("http://192.168.43.211:5000/upload", {
+      const res = await fetch("http://192.168.1.207:5000/upload", {
       // const res = await fetch ("https://elena-unscrubbed-gyroscopically.ngrok-free.dev/upload", {
         method: "POST",
         body: formData,
